@@ -1,0 +1,8 @@
+---
+  - name: create a user
+    user:
+      name: {{demo_user}}
+      password: {{demo_pass}}
+      groups: admin
+      append: yes
+      shell: /bin/bash

@@ -1,0 +1,5 @@
+---
+  - name: init Linux
+    hosts: ubuntu
+    roles:
+      - { role: init }

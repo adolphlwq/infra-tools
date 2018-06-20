@@ -1,0 +1,10 @@
+---
+  # - name: create user
+  #   include: user.yml
+
+  - name: install docker
+    become: yes
+    include: docker.yml
+
+  - name: install basic tools
+    include: basic.yml

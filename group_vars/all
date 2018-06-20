@@ -1,0 +1,4 @@
+---
+demo_user: guest
+demo_pass: guest
+dotfiles_dest: /home/guest/workspace/githubwp/dotfiles

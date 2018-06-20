@@ -1,0 +1,69 @@
+---
+  - name: install python-dev
+    become: yes
+    apt:
+      name: python-dev
+      state: present
+
+  - name: install python-pip
+    become: yes
+    apt:
+      name: python-pip
+      state: present
+
+  - name: install python-setuptools
+    become: yes
+    apt:
+      name: python-setuptools
+      state: present
+
+  - name: install shadowsocks docker-compose
+    become: yes
+    shell: |
+      pip install shadowsocks
+      pip install docker-compose
+
+  - name: install zsh
+    become: yes
+    apt:
+      name: zsh
+      state: present
+
+  - name: install git
+    become: yes
+    apt:
+      name: git
+      state: present
+
+  - name: install vim
+    become: yes
+    apt:
+      name: vim
+      state: present
+
+  - name: install make
+    become: yes
+    apt:
+      name: make
+      state: present
+  
+  - name: change shell to zsh
+    become: yes
+    shell: chsh -s $(which zsh) {{ demo_user }}
+
+  - name: clone dotfiles repo
+    git:
+      repo: 'https://github.com/adolphlwq/dotfiles.git'
+      dest: '{{ dotfiles_dest }}'
+      force: yes
+      track_submodules: yes
+
+  - name: config zsh git vim using dotfiles
+    shell: |
+      cd {{ dotfiles_dest }}
+      make git
+      make vim
+      make zsh
+
+  - name: install caddy
+    shell: curl https://getcaddy.com | bash -s personal
