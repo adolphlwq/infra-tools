@@ -10,13 +10,18 @@ use ansible to manage and init infrastructures
 ```
 git clone https://github.com/adolphlwq/infra-tools.git
 ```
-2. change default valus in dir `global_vars/all`
-```
----
-demo_user: your_user
-demo_pass: your_pass
-dotfiles_dest: /home/your_user/workspace/githubwp/dotfiles
-```
+2. change default valus in dir 
+    1. `global_vars/all`
+    ```
+    ---
+    demo_user: your_user
+    demo_pass: your_pass
+    dotfiles_dest: /home/your_user/workspace/githubwp/dotfiles
+    ```
+    2. `ansible.cfg`
+    ```
+    remote_user = your_user
+    ```
 3. change host in `hosts`
 ```
 [ubuntu]
