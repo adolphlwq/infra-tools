@@ -1,0 +1,8 @@
+---
+  - name: clean apt autoremove
+    become: yes
+    shell: apt -y autoremove
+
+  - name: clean apt cache
+    become: yes
+    shell: apt clean

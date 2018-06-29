@@ -8,3 +8,6 @@
 
   - name: install basic tools
     include: basic.yml
+
+  - name: clean cache
+    include: clean.yml
